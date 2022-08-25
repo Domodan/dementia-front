@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+    Heading,
+    VStack,
+    IconButton,
+} from '@chakra-ui/react';
+import {FaSun, FaMoon, FaArrowCircleRight} from 'react-icons/fa';
+import DataList from './components/DataList';
+import DataAdd from './components/DataAdd';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <VStack padding={4}>
+            <IconButton
+                icon={<FaSun />}
+                isRound={'true'}
+                size={"lg"}
+                alignSelf={'flex-end'}
+            />
+            <Heading mb={8} fontWeight={"extrabold"} size={"2xl"}>
+                Dementia Application
+            </Heading>
+            <DataList />
+        </VStack>
+    );
 }
 
-export default App;
+export default App
