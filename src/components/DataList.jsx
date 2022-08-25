@@ -4,7 +4,7 @@ import { getDocs, onSnapshot } from "firebase/firestore";
 import {
     Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, TableContainer, Stack, Button,
     Container, Box, FormControl, FormLabel, Input, VStack, Heading, Center, Divider,
-    InputGroup, InputLeftAddon,
+    InputGroup, InputLeftAddon, Text,
 } from '@chakra-ui/react';
 
 import { MdRepeat } from "react-icons/md";
@@ -150,59 +150,65 @@ const DataList = () => {
                     Refresh
                 </Button>
             </Stack>
-                <VStack>
-                    <Container maxW='container.sm' borderWidth='1px' rounded='md'>
-                        <Center>
-                            <Heading margin={3}>Edit Location Data</Heading>
-                        </Center>
-                        <Divider />
-                        <form>
-                            <Box padding={4}>
-                                <FormControl marginBottom={4} isRequired>
-                                    <FormLabel>Temperature ({'\u00b0'}C)</FormLabel>
-                                    <Input placeholder='Temperature' onChange={(e)=>setTemperature(e.target.value)} />
-                                </FormControl>
-                                <FormControl marginBottom={4} isRequired>
-                                    <FormLabel>Distance (km)</FormLabel>
-                                    <Input placeholder='Distance' onChange={(e)=>setDistance(e.target.value)} />
-                                </FormControl>
-                                <FormControl marginBottom={4} isRequired>
-                                    <FormLabel>Location</FormLabel>
-                                    <InputGroup>
-                                        <InputLeftAddon children='Latitude' />
-                                        <Input placeholder='Latitude' onChange={(e)=>setLatitude(e.target.value)} />
-                                    </InputGroup>
-                                </FormControl>
-                                <FormControl marginBottom={4} isRequired>
-                                    <InputGroup>
-                                        <InputLeftAddon children='Longitude' />
-                                        <Input placeholder='Longitude' onChange={(e)=>setLongitude(e.target.value)} />
-                                    </InputGroup>
-                                </FormControl>
-                                <FormControl marginBottom={4} isRequired>
-                                    <FormLabel>RSSI</FormLabel>
-                                    <Input placeholder='RSSI' onChange={(e)=>setRssi(e.target.value)} />
-                                </FormControl>
-                                <FormControl marginBottom={4} isRequired>
-                                    <FormLabel>Date/Time</FormLabel>
-                                    <Input
-                                        placeholder="Select Date and Time"
-                                        size="md"
-                                        type="datetime-local"
-                                        onChange={(e)=>setDatetime(e.target.value)}
-                                    />
-                                </FormControl>
-                            </Box>
-                            <Box padding={4}>
-                                <Center>
-                                    <Button type="submit" colorScheme={'whatsapp'} mr={3} onClick={()=>handleSubmit()}>
-                                        Update
-                                    </Button>
-                                </Center>
-                            </Box>
-                        </form>
-                    </Container>
-                </VStack>
+            <VStack>
+                <Container maxW='container.sm' borderWidth='1px' rounded='md'>
+                    <Center>
+                        <Heading
+                            bgGradient={'linear(to-r, blue.500, blue.300, pink.500)'}
+                            bgClip={"text"}
+                            margin={3}
+                        >
+                            Edit Location Data
+                        </Heading>
+                    </Center>
+                    <Divider />
+                    <form>
+                        <Box padding={4}>
+                            <FormControl marginBottom={4} isRequired>
+                                <FormLabel>Temperature ({'\u00b0'}C)</FormLabel>
+                                <Input placeholder='Temperature' onChange={(e)=>setTemperature(e.target.value)} />
+                            </FormControl>
+                            <FormControl marginBottom={4} isRequired>
+                                <FormLabel>Distance (km)</FormLabel>
+                                <Input placeholder='Distance' onChange={(e)=>setDistance(e.target.value)} />
+                            </FormControl>
+                            <FormControl marginBottom={4} isRequired>
+                                <FormLabel>Location</FormLabel>
+                                <InputGroup>
+                                    <InputLeftAddon children='Latitude' />
+                                    <Input placeholder='Latitude' onChange={(e)=>setLatitude(e.target.value)} />
+                                </InputGroup>
+                            </FormControl>
+                            <FormControl marginBottom={4} isRequired>
+                                <InputGroup>
+                                    <InputLeftAddon children='Longitude' />
+                                    <Input placeholder='Longitude' onChange={(e)=>setLongitude(e.target.value)} />
+                                </InputGroup>
+                            </FormControl>
+                            <FormControl marginBottom={4} isRequired>
+                                <FormLabel>RSSI</FormLabel>
+                                <Input placeholder='RSSI' onChange={(e)=>setRssi(e.target.value)} />
+                            </FormControl>
+                            <FormControl marginBottom={4} isRequired>
+                                <FormLabel>Date/Time</FormLabel>
+                                <Input
+                                    placeholder="Select Date and Time"
+                                    size="md"
+                                    type="datetime-local"
+                                    onChange={(e)=>setDatetime(e.target.value)}
+                                />
+                            </FormControl>
+                        </Box>
+                        <Box padding={4}>
+                            <Center>
+                                <Button type="submit" colorScheme={'whatsapp'} mr={3} onClick={()=>handleSubmit()}>
+                                    Update
+                                </Button>
+                            </Center>
+                        </Box>
+                    </form>
+                </Container>
+            </VStack>
         </div>
     )
 }
